@@ -2,18 +2,23 @@ public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
 
+  //Everything is zero
+  @SuppressWarnings("unchecked")
   public MyDeque(){
     size = 0;
     start = 0;
     end = 0;
+    data = (E[])new Object[0];
   }
 
+  @SuppressWarnings("unchecked")
   public MyDeque(int initialCapacity){
     //Set size to the initial capacity and since data is currently empty, start
     //and end are both zero
     size = initialCapacity;
     start = 0;
     end = 0;
+    data = (E[])new Object[size];
   }
 
   //Return size
