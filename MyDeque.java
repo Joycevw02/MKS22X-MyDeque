@@ -3,7 +3,9 @@ public class MyDeque<E>{
   private int size, start, end;
 
   public MyDeque(){
-
+    size = 0;
+    start = 0;
+    end = 0;
   }
 
   public MyDeque(int initialCapacity){
@@ -51,18 +53,27 @@ public class MyDeque<E>{
   }
 
   public E removeFirst(){
-
+    //E ans is the returned element
+    E ans = data[start];
+    //Set the value at start to null and shift start over one
+    data[start] = null;
+    start += 1;
+    return ans;
   }
 
-  public E removeLast(){
+//  public E removeLast(){
+//
+//  }
+//
+// public E getFirst(){
+//
+//  }
+//
+//  public E getLast(){
+//
+//  }
 
-  }
-
-  public E getFirst(){
-
-  }
-
-  public E getLast(){
+  public static void main(String[] args){
 
   }
 }
