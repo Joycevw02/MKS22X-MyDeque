@@ -7,7 +7,9 @@ public class MyDeque<E>{
   }
 
   public MyDeque(int initialCapacity){
-
+    size = initialCapacity;
+    start = 0;
+    end = 0;
   }
 
   public int size(){
@@ -27,7 +29,7 @@ public class MyDeque<E>{
   }
 
   public E removeFirst(){
-
+    
   }
 
   public E removeLast(){
@@ -39,6 +41,6 @@ public class MyDeque<E>{
   }
 
   public E getLast(){
-    
+
   }
 }
