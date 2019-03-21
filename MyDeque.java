@@ -63,12 +63,19 @@ public class MyDeque<E>{
     //Set the value at start to null and shift start over one
     data[start] = null;
     start += 1;
+    size --;
     return ans;
   }
 
-//  public E removeLast(){
-//
-//  }
+  public E removeLast(){
+    //E ans is the returned element
+    E ans = data[end];
+    //Set the value at end to null and shift end down one index
+    data[end] = null;
+    end -= 1;
+    size --;
+    return ans;
+  }
 //
 // public E getFirst(){
 //
