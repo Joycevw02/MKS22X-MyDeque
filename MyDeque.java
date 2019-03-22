@@ -81,13 +81,24 @@ public class MyDeque<E>{
         Ei ++;
       }
     }
-    //Set data to temp
+    //Set data to temp, increase size, and decrease start
     data = temp;
     size ++;
+    start --;
   }
 
   public void addLast(E element){
-
+    if (element == null){
+      throw new NullPointerException();
+    }
+    //Resize if the array is full
+    if (data.length == size){
+      resize();
+    }
+    //Set the next value to element and increase size and end
+    data[size] = element;
+    size ++;
+    end ++;
   }
 
   public E removeFirst(){
