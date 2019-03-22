@@ -99,7 +99,7 @@ public class MyDeque<E>{
     return data[end];
   }
 
-  public static void main(String[] args){
+  private void resize(){
 
   }
 }
