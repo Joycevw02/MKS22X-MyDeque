@@ -87,13 +87,17 @@ public class MyDeque<E>{
    if (this.size() == 0){
      throw new NoSuchElementException();
    }
-   //Return the start value
+   //Return the value at start
    return data[start];
   }
-//
-//  public E getLast(){
-//
-//  }
+
+  public E getLast(){
+    if (this.size() == 0){
+      throw new NoSuchElementException();
+    }
+    //Return the value at end
+    return data[end];
+  }
 
   public static void main(String[] args){
 
