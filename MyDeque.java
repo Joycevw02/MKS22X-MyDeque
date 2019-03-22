@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
@@ -8,17 +11,16 @@ public class MyDeque<E>{
     size = 0;
     start = 0;
     end = 0;
-    data = (E[])new Object[0];
+    data = (E[])new Object[10];
   }
 
   @SuppressWarnings("unchecked")
   public MyDeque(int initialCapacity){
-    //Set size to the initial capacity and since data is currently empty, start
-    //and end are both zero
-    size = initialCapacity;
+    //Create a data of size initialCapacity and set the other values to zero
+    size = 0;
     start = 0;
     end = 0;
-    data = (E[])new Object[size];
+    data = (E[])new Object[initialCapacity];
   }
 
   //Return size
@@ -58,28 +60,36 @@ public class MyDeque<E>{
   }
 
   public E removeFirst(){
+    if (this.size() == 0){
+      throw new NoSuchElementException();
+    }
     //E ans is the returned element
     E ans = data[start];
-    //Set the value at start to null and shift start over one
-    data[start] = null;
+    //Shifts start over one
     start += 1;
     size --;
     return ans;
   }
 
   public E removeLast(){
+    if (this.size() == 0){
+      throw new NoSuchElementException();
+    }
     //E ans is the returned element
     E ans = data[end];
-    //Set the value at end to null and shift end down one index
-    data[end] = null;
+    //Shifts end down one index
     end -= 1;
     size --;
     return ans;
   }
-//
-// public E getFirst(){
-//
-//  }
+
+ public E getFirst(){
+   if (this.size() == 0){
+     throw new NoSuchElementException();
+   }
+   //Return the start value
+   return data[start];
+  }
 //
 //  public E getLast(){
 //
