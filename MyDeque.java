@@ -51,11 +51,39 @@ public class MyDeque<E>{
     return ans;
   }
 
+  @SuppressWarnings("unchecked")
   public void addFirst(E element){
     if (element == null){
       throw new NullPointerException();
     }
 
+    E[] temp = (E[]) new Object[size + 1];
+    temp[0] = element;
+
+    int Ei = 1; //Index in temp
+    //If start is less than end, copy over as per usual, incrementing Ei by one
+    //each time
+    if (start < end){
+      for (int i = start; i < end; i ++){
+        temp[Ei] = data[i];
+        Ei ++;
+      }
+    }
+    //If not, run through the data from start through the rest of the data, then
+    //go back from the zeroth index to end index
+    else{
+      for (int i = start; i < size; i ++){
+        temp[Ei] = data[i];
+        Ei ++;
+      }
+      for (int i = 0; i < end; i ++){
+        temp[Ei] = data[i];
+        Ei ++;
+      }
+    }
+    //Set data to temp
+    data = temp;
+    size ++;
   }
 
   public void addLast(E element){
