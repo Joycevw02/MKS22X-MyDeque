@@ -99,7 +99,13 @@ public class MyDeque<E>{
     return data[end];
   }
 
+  @SuppressWarnings("unchecked")
   private void resize(){
-
+    //Eveytime you resize, double the size of the array
+    E[] temp = (E[]) new Object[size * 2];
+    for (int i = 0; i < size; i ++){
+      temp[i] = data[i];
+    }
+    data = temp;
   }
 }
