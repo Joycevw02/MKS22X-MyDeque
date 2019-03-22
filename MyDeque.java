@@ -52,6 +52,9 @@ public class MyDeque<E>{
   }
 
   public void addFirst(E element){
+    if (element == null){
+      throw new NullPointerException();
+    }
 
   }
 
@@ -103,9 +106,29 @@ public class MyDeque<E>{
   private void resize(){
     //Eveytime you resize, double the size of the array
     E[] temp = (E[]) new Object[size * 2];
-    for (int i = 0; i < size; i ++){
-      temp[i] = data[i];
+
+    int Ei = 0; //Index in temp
+    //If start is less than end, copy over as per usual, incrementing Ei by one
+    //each time
+    if (start < end){
+      for (int i = start; i < end; i ++){
+        temp[Ei] = data[i];
+        Ei ++;
+      }
     }
+    //If not, run through the data from start through the rest of the data, then
+    //go back from the zeroth index to end index
+    else{
+      for (int i = start; i < size; i ++){
+        temp[Ei] = data[i];
+        Ei ++;
+      }
+      for (int i = 0; i < end; i ++){
+        temp[Ei] = data[i];
+        Ei ++;
+      }
+    }
+    //Set data to temp
     data = temp;
   }
 }
