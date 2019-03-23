@@ -30,8 +30,11 @@ public class MyDeque<E>{
 
   public String toString(){
     String ans = "[";
+    if (size == 0){
+      return "[]";
+    }
     //If start is less than end, run through data and add the values to ans
-    if (start < end){
+    else if (start < end){
       for (int i = start; i < end; i ++){
         ans = ans + data[i] + ",";
       }
@@ -47,7 +50,7 @@ public class MyDeque<E>{
       }
     }
     //Remove the extra comma and add the closing bracket
-    ans = ans.substring(0,size - 1) + "]";
+    ans = ans.substring(0, ans.length() - 1) + "]";
     return ans;
   }
 
