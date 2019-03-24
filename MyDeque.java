@@ -68,8 +68,8 @@ public class MyDeque<E>{
       resize();
     }
 
-    //If size isn't one (one doesn't need to be modified)
-    if (size != 1){
+    //If size isn't zero.....
+    if (size != 0){
       //If start is zero, set start to the last index
       if (start == 0){
         start = data.length - 1;
@@ -143,21 +143,28 @@ public class MyDeque<E>{
     }
     //E ans is the returned element
     E ans = data[end];
+
+    //Set the value at end to null
     data[end] = null;
+
+    //If size isn't one (which doesn't need to be modified)...
     if (size != 1){
+      //If end is the first value, set end to the last value
       if (end == 0){
         end = data.length - 1;
       }
+      //Else, decrease end
       else{
         end --;
       }
     }
+    //Decrease size
     size --;
     return ans;
   }
 
  public E getFirst(){
-   if (this.size() == 0){
+   if (size == 0){
      throw new NoSuchElementException();
    }
    //Return the value at start
@@ -165,7 +172,7 @@ public class MyDeque<E>{
   }
 
   public E getLast(){
-    if (this.size() == 0){
+    if (size == 0){
       throw new NoSuchElementException();
     }
     //Return the value at end
