@@ -16,6 +16,9 @@ public class MyDeque<E>{
 
   @SuppressWarnings("unchecked")
   public MyDeque(int initialCapacity){
+    if (initialCapacity < 0){
+      throw new IllegalArgumentException();
+    }
     //Create a data of size initialCapacity and set the other values to zero
     size = 0;
     start = 0;
@@ -59,7 +62,10 @@ public class MyDeque<E>{
     if (element == null){
       throw new NullPointerException();
     }
-     
+    if (size == data.length){
+      resize();
+    }
+
   }
 
   public void addLast(E element){
@@ -124,7 +130,7 @@ public class MyDeque<E>{
     int Ei = 0; //Index in temp
     //If start is less than end, copy over as per usual, incrementing Ei by one
     //each time
-    if (start < end){
+    if (start <= end){
       for (int i = start; i < end; i ++){
         temp[Ei] = data[i];
         Ei ++;
@@ -137,12 +143,14 @@ public class MyDeque<E>{
         temp[Ei] = data[i];
         Ei ++;
       }
-      for (int i = 0; i < end; i ++){
+      for (int i = 0; i <= end; i ++){
         temp[Ei] = data[i];
         Ei ++;
       }
     }
     //Set data to temp
     data = temp;
+    start = 0;
+    end = size - 1;
   }
 }
