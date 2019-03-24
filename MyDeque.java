@@ -94,10 +94,22 @@ public class MyDeque<E>{
     if (data.length == size){
       resize();
     }
-    //Set the next value to element and increase size and end
+
+    //If size isn't zero.....
+    if (size != 0){
+      //If end is the last index, set end to 0
+      if (end == data.length - 1){
+        end = 0;
+      }
+      //Else, increase end
+      else{
+        end ++;
+      }
+    }
+    //Set the next value to element and increase size
     data[size] = element;
     size ++;
-    end ++;
+
   }
 
   public E removeFirst(){
