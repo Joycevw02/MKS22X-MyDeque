@@ -68,8 +68,8 @@ public class MyDeque<E>{
       resize();
     }
 
-    //If size isn't zero.....
-    if (size != 0){
+    //If size isn't one (one doesn't need to be modified)
+    if (size != 1){
       //If start is zero, set start to the last index
       if (start == 0){
         start = data.length - 1;
@@ -121,7 +121,7 @@ public class MyDeque<E>{
     //Set the value at start to null
     data[start] = null;
 
-    //If size isn't zero.....
+    //If size isn't one (which doesn't need to be modified)...
     if (size != 1){
       //If start is the last index, set the start to 0
       if (start == data.length - 1){
@@ -143,8 +143,15 @@ public class MyDeque<E>{
     }
     //E ans is the returned element
     E ans = data[end];
-    //Shifts end down one index
-    end --;
+    data[end] = null;
+    if (size != 1){
+      if (end == 0){
+        end = data.length - 1;
+      }
+      else{
+        end --;
+      }
+    }
     size --;
     return ans;
   }
