@@ -57,7 +57,6 @@ public class MyDeque<E>{
     return ans;
   }
 
-  @SuppressWarnings("unchecked")
   public void addFirst(E element){
     //If the added element is null, throw an excepti
     if (element == null){
@@ -113,13 +112,27 @@ public class MyDeque<E>{
   }
 
   public E removeFirst(){
-    if (this.size() == 0){
+    if (size == 0){
       throw new NoSuchElementException();
     }
     //E ans is the returned element
     E ans = data[start];
-    //Shifts start over one
-    start ++;
+
+    //Set the value at start to null
+    data[start] = null;
+
+    //If size isn't zero.....
+    if (size != 1){
+      //If start is the last index, set the start to 0
+      if (start == data.length - 1){
+        start = 0;
+      }
+      //Else, increase start
+      else{
+        start ++;
+      }
+    }
+    //Decrease size
     size --;
     return ans;
   }
