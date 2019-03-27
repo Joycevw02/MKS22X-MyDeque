@@ -45,9 +45,11 @@ public class Calculator{
           }
         }
         else if (c == ' '){
-          System.out.println("New Int : " + current);
-          temp.addLast(Double.valueOf(current));
-          current = "";
+          if (s.charAt(i - 1) != '+' || s.charAt(i - 1) != '-' || s.charAt(i - 1) != '*' || s.charAt(i - 1) != '/' || s.charAt(i - 1) != '%'){
+            System.out.println("New Int : " + current);
+            temp.addLast(Double.valueOf(current));
+            current = "";
+          }
         }
       }
       return temp.getLast();
@@ -55,17 +57,38 @@ public class Calculator{
 
     public static void main(String[] args){
       String test = "1 23 4 + -";
+  /*
       MyDeque<String> testQ = new MyDeque<>();
       String temp = "";
       for (int i = 0; i < test.length(); i ++){
-        if (test.charAt(i) != ' '){
-          temp += test.substring(i, i + 1);
+        Character c = test.charAt(i);
+        if (c != ' '){
+          if (c != '+' && c != '-' && c != '*' && c != '/' && c != '%'){
+            System.out.println("Number");
+          }
+          else{
+            if (c == '+'){
+              System.out.println("Add!");
+            }
+            else if (c == '-'){
+              System.out.println("Subtract!");
+            }
+            else if (c == '*'){
+              System.out.println("Multiply!");
+            }
+            else if (c == '/'){
+              System.out.println("Divide!");
+            }
+            else if (c == '%'){
+              System.out.println("Mod!");
+            }
+          }
         }
-        else{
-          testQ.addLast("Deque : " + temp);
-          temp = "";
+        else if (c == ' '){
+          System.out.println("New Int");
         }
       }
+  */
       //System.out.println(testQ);
       //System.out.println(Double.valueOf("2"));
       eval(test);
