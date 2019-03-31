@@ -57,6 +57,46 @@ public class Calculator{
     }
 */
 
+    public static double eval(String s){
+      //Split the string into a array of values
+      MyDeque<Double> temp = new MyDeque<Double>();
+      String[] values = s.split(" ");
+
+      //Loop through the values...
+      for(int i = 0; i < values.length; i++){
+        //Try adding the double of the value to the temp
+        try {
+          temp.addLast(Double.parseDouble(values[i]));
+        }
+        //If its not a number...
+        catch(NumberFormatException e){
+          //X and Y are the two values that are being evaluated first and the
+          //function
+          Double x = temp.removeLast();
+          Double y = temp.removeLast();
+          String func = values[i];
+
+          if (func.equals("+")){
+            temp.addLast(x + y);
+          }
+          else if (func.equals("-")){
+            temp.addLast(y - x);
+          }
+          else if(func.equals("*")){
+            temp.addLast(x * y);
+          }
+          else if(func.equals("/")){
+            temp.addLast(y / x);
+          }
+          else{
+            temp.addLast(y % x);
+          }
+        }
+      }
+    //Return the last value of the deque
+    return temp.getLast();
+    }
+
     public static void main(String[] args){
       String test = "1 23 4 + -";
   /*
@@ -93,7 +133,7 @@ public class Calculator{
   */
       //System.out.println(testQ);
       //System.out.println(Double.valueOf("2"));
-      //eval(test);
+      System.out.println(eval(test));
 
     }
 }
