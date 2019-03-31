@@ -4,6 +4,7 @@ public class Calculator{
     /*Evaluate a postfix expression stored in s.
      *Assume valid postfix notation, separated by spaces.
      */
+/*
     public static double eval(String s){
       MyDeque<Double> temp = new MyDeque<>();
       String current = "";
@@ -54,6 +55,7 @@ public class Calculator{
       }
       return temp.getLast();
     }
+*/
 
     public static void main(String[] args){
       String test = "1 23 4 + -";
@@ -91,7 +93,7 @@ public class Calculator{
   */
       //System.out.println(testQ);
       //System.out.println(Double.valueOf("2"));
-      eval(test);
+      //eval(test);
 
     }
 }
