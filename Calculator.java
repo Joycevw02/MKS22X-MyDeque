@@ -4,58 +4,6 @@ public class Calculator{
     /*Evaluate a postfix expression stored in s.
      *Assume valid postfix notation, separated by spaces.
      */
-/*
-    public static double eval(String s){
-      MyDeque<Double> temp = new MyDeque<>();
-      String current = "";
-      for (int i = 0; i < s.length(); i ++){
-        char c = s.charAt(i);
-        if (c != ' '){
-          if (c != '+' && c != '-' && c != '*' && c != '/' && c != '%'){
-            current += c;
-            System.out.println("Current : " + current);
-          }
-          else{
-            double x = temp.removeLast();
-            double y = temp.removeLast();
-            if (c == '+'){
-              System.out.println("Add!");
-              temp.addLast(x + y);
-              System.out.println("Deque : " + temp);
-            }
-            else if (c == '-'){
-              System.out.println("Subtract!");
-              temp.addLast(y - x);
-              System.out.println("Deque : " + temp);
-            }
-            else if (c == '*'){
-              System.out.println("Multiply!");
-              temp.addLast(x * y);
-              System.out.println("Deque : " + temp);
-            }
-            else if (c == '/'){
-              System.out.println("Divide!");
-              temp.addLast(y / x);
-              System.out.println("Deque : " + temp);
-            }
-            else if (c == '%'){
-              System.out.println("Mod!");
-              temp.addLast(y % x);
-              System.out.println("Deque : " + temp);
-            }
-          }
-        }
-        else if (c == ' '){
-          if (s.charAt(i - 1) != '+' || s.charAt(i - 1) != '-' || s.charAt(i - 1) != '*' || s.charAt(i - 1) != '/' || s.charAt(i - 1) != '%'){
-            System.out.println("New Int : " + current);
-            temp.addLast(Double.valueOf(current));
-            current = "";
-          }
-        }
-      }
-      return temp.getLast();
-    }
-*/
 
     public static double eval(String s){
       //Split the string into a array of values
@@ -134,6 +82,7 @@ public class Calculator{
       //System.out.println(testQ);
       //System.out.println(Double.valueOf("2"));
       //System.out.println(eval(test));
+      /*
           String[] inputs = {
             //a big pile of single operation tests
             "1 1 +",
@@ -178,4 +127,6 @@ public class Calculator{
           }
           System.out.println("\n"+(100.0*passed/outputs.length)+"%: "+passed+" of "+outputs.length+" test cases passed");
         }
-}
+        */
+    }
+  }
